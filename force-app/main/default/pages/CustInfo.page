@@ -1,0 +1,36 @@
+<apex:page Controller="CustInfos">
+        <apex:form >
+        <apex:pageBlock title="Customer Information">
+            
+            <apex:pageBlockSection columns="1">
+               
+                  <apex:inputText value="{!FirstName}" label="FirstName"/>
+                <apex:inputText value="{!LastName}" label="LastName"/>
+                <apex:inputText value="{!PhoneNumber}" label="PhoneNumber"/>
+                 <apex:pageMessages />
+                <apex:inputText value="{!Email}" label="Email"/>
+                <apex:inputText value="{!Website}" label="Website"/>
+                <apex:inputText value="{!Language}" label="Language"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+            
+            <!-- display cust info-->
+            
+            <apex:outputPanel id="CustomerList">
+    <apex:pageBlock title="Customer Information">
+        <apex:pageBlockTable value="{!CustomerList}" var="customer">
+            <apex:column value="{!customer.Name}"/>
+            <apex:column value="{!customer.Phone}"/>
+            <apex:column value="{!customer.Email__c}"/>
+            <apex:column value="{!customer.Website}"/>
+            <apex:column value="{!customer.Language__c}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:outputPanel>
+            
+        </apex:form>
+    </apex:page>
